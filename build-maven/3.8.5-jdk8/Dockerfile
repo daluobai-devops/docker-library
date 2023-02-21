@@ -15,7 +15,7 @@ RUN chmod 700 /root/.ssh && chmod 600 /root/.ssh/*
 COPY build/settings*.xml ${MAVEN_CONFIG}/
 # install mvnd
 ARG MVND_VERSION=0.9.0
-ARG DOWNLOAD_URL=https://cdn.jsdelivr.net/gh/wuzhaozhongguo/share-file@master/maven-mvnd-${MVND_VERSION}-linux-amd64.zip
+ARG DOWNLOAD_URL=https://cdn.jsdelivr.net/gh/wuzhaozhongguo/share-file@master/attachment/maven-mvnd-${MVND_VERSION}-linux-amd64.zip
 RUN mkdir -p /usr/local/mvnd
 RUN curl -fsSL -o mvnd.zip ${DOWNLOAD_URL}
 RUN unzip  mvnd.zip -d /usr/local/mvnd
