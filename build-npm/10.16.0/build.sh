@@ -1,3 +1,4 @@
+#!/bin/bash
 set -eo pipefail
 tagVersion=10.16.0
 docker build -t wuzhaozhongguo/build-npm:${tagVersion} .
