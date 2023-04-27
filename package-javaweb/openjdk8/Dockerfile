@@ -12,14 +12,11 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 VOLUME /tmp
 VOLUME /logs
 VOLUME /app
-ADD build/app.jar /app/app.jar
-ARG BUILD_EXPOSE=0
-ARG appName=""
-ARG runOptions=""
-ARG runArgs=""
-ENV RUN_APPNAME=${appName}
-ENV RUN_RUNOPTIONS=${runOptions}
-ENV RUN_RUNARGS=${runArgs}
+ADD build/package/app.jar /app/app.jar
+ENV BUILD_EXPOSE=0
+ENV appName=""
+ENV runOptions=""
+ENV runArgs=""
 EXPOSE ${BUILD_EXPOSE}
 
-CMD java -Dapp.name=${RUN_APPNAME} ${RUN_RUNOPTIONS} -jar /app/app.jar ${RUN_RUNARGS}  >/dev/null 2>&1
+CMD java -Dapp.name=${appName} ${runOptions} -jar /app/app.jar ${runArgs}  >/dev/null 2>&1
