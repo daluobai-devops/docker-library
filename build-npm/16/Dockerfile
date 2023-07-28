@@ -1,4 +1,4 @@
-FROM node:14.21.3-alpine
+FROM node:16-alpine3.17
 RUN { \
         echo 'https://mirrors.aliyun.com/alpine/v3.9/main/'; \
         echo 'https://mirrors.aliyun.com/alpine/v3.9/community/'; \
@@ -16,7 +16,7 @@ RUN apk update \
                    zip \
                    git \
                    && /bin/bash && rm -rf /var/lib/apt/lists/* && rm /var/cache/apk/*
-RUN npm config set unsafe-perm true
+#RUN npm config set unsafe-perm true
 RUN npm install cnpm -g --registry=https://registry.npmmirror.com
 RUN #npm install yarn -g --registry=https://registry.npmmirror.com
 
