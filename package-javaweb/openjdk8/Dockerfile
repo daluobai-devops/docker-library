@@ -13,10 +13,10 @@ VOLUME /tmp
 VOLUME /logs
 VOLUME /app
 ADD build/package/app.jar /app/app.jar
-ENV BUILD_EXPOSE=0
-ENV appName=""
-ENV runOptions=""
-ENV runArgs=""
+ARG BUILD_EXPOSE=0
+ARG appName=""
+ARG runOptions=""
+ARG runArgs=""
 EXPOSE ${BUILD_EXPOSE}
 
 CMD java -Dapp.name=${appName} ${runOptions} -jar /app/app.jar ${runArgs}  >/dev/null 2>&1
