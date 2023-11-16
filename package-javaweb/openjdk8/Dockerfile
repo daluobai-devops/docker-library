@@ -17,10 +17,5 @@ ADD build/package/app.jar /app/app.jar
 ENV appName="test"
 ENV runOptions="-Xms129M -Xmx129M"
 ENV runArgs="--spring.profiles.active=test"
-RUN echo "Hello, $appName,$runOptions, $runArgs"
-EXPOSE ${BUILD_EXPOSE}
-
-#ENTRYPOINT java -Dapp.name=${appName} ${runOptions} -jar /app/app.jar ${runArgs}
-#ENTRYPOINT ["java", "-Dapp.name=${appName}", "-jar", "/app/app.jar"]
 
 ENTRYPOINT ["java", "-Dapp.name=${appName}", "${runOptions}", "-jar", "/app/app.jar", "${runArgs}"]
