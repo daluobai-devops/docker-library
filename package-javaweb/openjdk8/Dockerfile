@@ -14,7 +14,7 @@ VOLUME /logs
 VOLUME /app
 ADD build/package/app.jar /app/app.jar
 #ARG BUILD_EXPOSE=0
-#ENV appName="test"
+ENV appName="test"
 #ENV runOptions=""
 #ENV runArgs=""
 RUN echo "Hello, $appName,$runOptions, $runArgs"
