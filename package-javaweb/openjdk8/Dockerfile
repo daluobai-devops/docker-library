@@ -14,8 +14,8 @@ VOLUME /logs
 VOLUME /app
 ADD build/package/app.jar /app/app.jar
 #ARG BUILD_EXPOSE=0
-ENV appName="test"
-ENV runOptions="-Xms129M -Xmx129M"
-ENV runArgs="--spring.profiles.active=test"
+ENV appName=${appName}
+ENV runOptions=${runOptions}
+ENV runArgs=${runArgs}
 
 ENTRYPOINT ["sh", "-c", "java -Dapp.name=${appName} ${runOptions} -jar /app/app.jar ${runArgs}"]
