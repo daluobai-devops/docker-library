@@ -20,4 +20,4 @@ ARG runArgs
 RUN echo "Hello, $appName,$runOptions, $runArgs"
 EXPOSE ${BUILD_EXPOSE}
 
-entrypoint java -Dapp.name=$appName $runOptions -jar /app/app.jar $runArgs
+entrypoint ["java", "-Dapp.name=$appName", "$runOptions", "-jar", "/app/app.jar", "$runArgs"]
