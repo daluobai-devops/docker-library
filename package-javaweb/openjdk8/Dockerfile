@@ -18,4 +18,6 @@ ENV appName=${appName}
 ENV runOptions=${runOptions}
 ENV runArgs=${runArgs}
 
-ENTRYPOINT ["sh", "-c", "java -Dapp.name=${appName} ${runOptions} -jar /app/app.jar ${runArgs}"]
+CMD java -Dapp.name=${appName} ${runOptions} -jar /app/app.jar ${runArgs}
+
+#ENTRYPOINT ["sh", "-c", "java -Dapp.name=${appName} ${runOptions} -jar /app/app.jar ${runArgs}"]
