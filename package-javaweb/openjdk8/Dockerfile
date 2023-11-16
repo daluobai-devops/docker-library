@@ -17,12 +17,10 @@ ARG BUILD_EXPOSE=0
 ARG appName
 ARG runOptions
 ARG runArgs
-ENV appName1=${appName}
-ENV runOptions1=${runOptions}
-ENV runArgs1=${runArgs}
+ENV appNameP=${appName}
+ENV runOptionsP=${runOptions}
+ENV runArgsP=${runArgs}
 
 EXPOSE ${BUILD_EXPOSE}
+CMD java -Dapp.name=${appNameP} ${runOptionsP} -jar "/app/app.jar" ${runArgsP}
 
-CMD java -Dapp.name=${appName1} ${runOptions1} -jar "/app/app.jar" ${runArgs1}
-
-#ENTRYPOINT ["sh", "-c", "java -Dapp.name=${appName} ${runOptions} -jar /app/app.jar ${runArgs}"]
