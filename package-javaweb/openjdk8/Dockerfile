@@ -14,10 +14,10 @@ VOLUME /logs
 VOLUME /app
 ADD build/package/app.jar /app/app.jar
 #ARG BUILD_EXPOSE=0
-ENV appName=${appName}
-ENV runOptions=${runOptions}
-ENV runArgs=${runArgs}
+ENV appName1=${appName}
+ENV runOptions1=${runOptions}
+ENV runArgs1=${runArgs}
 
-CMD java -Dapp.name=${appName} ${runOptions} -jar /app/app.jar ${runArgs}
+CMD java -Dapp.name=${appName1} ${runOptions1} -jar "/app/app.jar" ${runArgs1}
 
 #ENTRYPOINT ["sh", "-c", "java -Dapp.name=${appName} ${runOptions} -jar /app/app.jar ${runArgs}"]
