@@ -18,4 +18,4 @@ ENV appName="test"
 ENV runOptions="-Xms129M -Xmx129M"
 ENV runArgs="--spring.profiles.active=test"
 
-ENTRYPOINT ["sh", "-c", "java",  "-jar", "/app/app.jar"]
+ENTRYPOINT java -jar /app/app.jar
