@@ -13,11 +13,11 @@ VOLUME /tmp
 VOLUME /logs
 VOLUME /app
 ADD build/package/app.jar /app/app.jar
-ARG BUILD_EXPOSE=0
-ARG appName="test"
-ARG runOptions
-ARG runArgs
+#ARG BUILD_EXPOSE=0
+#ENV appName="test"
+#ENV runOptions=""
+#ENV runArgs=""
 RUN echo "Hello, $appName,$runOptions, $runArgs"
 EXPOSE ${BUILD_EXPOSE}
 
-entrypoint ["java", "-Dapp.name=${appName}", "-jar", "/app/app.jar", "${runArgs}"]
+entrypoint ["java", "-Dapp.name=${appName}", "${runOptions}", "-jar", "/app/app.jar", "${runArgs}"]
