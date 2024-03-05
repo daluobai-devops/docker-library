@@ -14,11 +14,13 @@ VOLUME /logs
 VOLUME /app
 ADD build/package/app.jar /app/app.jar
 ARG BUILD_EXPOSE=0
+ARG appName
 ARG runOptions
 ARG runArgs
+ENV appNameP=${appName}
 ENV runOptionsP=${runOptions}
 ENV runArgsP=${runArgs}
 
 EXPOSE ${BUILD_EXPOSE}
-CMD java ${runOptionsP} -jar "/app/app.jar" ${runArgsP}
+CMD java -Dapp.name=${appNameP} ${runOptionsP} -jar "/app/app.jar" ${runArgsP}
 

@@ -26,7 +26,7 @@ RUN #npm install yarn -g --registry=https://registry.npmmirror.com
 
 RUN npm config set registry https://registry.npmmirror.com -g
 RUN #yarn config set registry https://registry.npmmirror.com -g
-RUN npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/ -g
+RUN npm config set sass_binary_site https://registry.npmmirror.com/node-sass/ -g
 
 #package
 ENV BASE_PATH=/app
