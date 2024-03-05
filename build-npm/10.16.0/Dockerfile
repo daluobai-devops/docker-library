@@ -17,16 +17,10 @@ RUN apk update \
                    git \
                    && /bin/bash && rm -rf /var/lib/apt/lists/* && rm /var/cache/apk/*
 RUN npm config set unsafe-perm true
-RUN npm install cnpm -g --registry=https://registry.npmmirror.com
-RUN #npm install yarn -g --registry=https://registry.npmmirror.com
+RUN #npm install cnpm -g --registry=https://registry.npmmirror.com
 
-# PNPM
-#RUN npm i pnpm -g
-#RUN pnpm config set registry https://registry.npmmirror.com
-
-RUN npm config set registry https://registry.npmmirror.com -g
-RUN #yarn config set registry https://registry.npmmirror.com -g
-RUN npm config set sass_binary_site https://registry.npmmirror.com/node-sass/ -g
+#RUN npm config set registry https://registry.npmmirror.com -g
+#RUN npm config set sass_binary_site https://registry.npmmirror.com/node-sass/ -g
 
 #package
 ENV BASE_PATH=/app
