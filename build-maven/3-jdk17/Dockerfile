@@ -1,4 +1,4 @@
-FROM maven:3.9.0-eclipse-temurin-17-alpine
+FROM maven:3-eclipse-temurin-17-alpine
 #env pre
 RUN { \
         echo 'https://mirrors.aliyun.com/alpine/v3.9/main/'; \

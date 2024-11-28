@@ -1,5 +1,5 @@
 set -eo pipefail
-tagVersion=3.9.8-jdk21
+tagVersion=3-jdk7
 docker build -t wuzhaozhongguo/build-maven:${tagVersion} .
 docker push wuzhaozhongguo/build-maven:${tagVersion}
 
