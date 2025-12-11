@@ -1,30 +1,25 @@
 FROM node:22-alpine3.20
-RUN { \
-        echo 'https://mirrors.aliyun.com/alpine/v3.20/main/'; \
-        echo 'https://mirrors.aliyun.com/alpine/v3.20/community/'; \
-    } > /etc/apk/repositories
-RUN apk update \
-        && apk upgrade \
-        && apk add --no-cache bash \
-                   bash-doc \
-                   bash-completion \
-                   curl \
-                   openssh \
-                   less \
-                   ttf-dejavu \
-                   fontconfig \
-                   zip \
-                   git \
-                   && /bin/bash && rm -rf /var/lib/apt/lists/* && rm /var/cache/apk/*
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+
+RUN apk add --no-cache \
+        bash \
+        curl \
+        openssh \
+        git \
+        zip \
+        less \
+        ttf-dejavu \
+        fontconfig
 #taobao镜像
+RUN echo "registry=https://registry.npmmirror.com" > ~/.npmrc && \
+    echo "sass_binary_site=https://npmmirror.com/mirrors/node-sass/" >> ~/.npmrc
 RUN npm install -g cnpm --registry=https://registry.npmmirror.com
-RUN npm config set registry https://registry.npmmirror.com -g
-#RUN npm config set sass_binary_site https://npmmirror.com/mirrors/node-sass/ -g
 # PNPM
-RUN npm install -g pnpm
-RUN pnpm config set registry https://registry.npmmirror.com
+RUN npm i pnpm -g && \
+    pnpm config set registry https://registry.npmmirror.com
 #package
-ENV BASE_PATH=/app
-ENV PACKAGE_FOLDER_NAME=package
-ENV CODE_FOLDER_NAME=code
+ENV BASE_PATH=/app \
+    PACKAGE_FOLDER_NAME=package \
+    CODE_FOLDER_NAME=code
 RUN mkdir -p ${BASE_PATH} && mkdir -p ${BASE_PATH}/${PACKAGE_FOLDER_NAME} && mkdir -p ${BASE_PATH}/${CODE_FOLDER_NAME}
+CMD ["node", "-v"]
