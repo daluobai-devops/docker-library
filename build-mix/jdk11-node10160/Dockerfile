@@ -21,9 +21,10 @@ RUN curl -fsSL https://unofficial-builds.nodejs.org/download/release/${NODE_VERS
     && node -v && npm -v
 
 #taobao镜像
-RUN npm install -g cnpm --registry=https://registry.npmmirror.com
-RUN npm config set registry https://registry.npmmirror.com -g
-RUN npm config set sass_binary_site https://npmmirror.com/mirrors/node-sass/ -g
+RUN echo "registry=https://registry.npmmirror.com" > ~/.npmrc && \
+    echo "sass_binary_site=https://npmmirror.com/mirrors/node-sass/" >> ~/.npmrc
+
+RUN npm install -g cnpm
 
 #package
 ENV BASE_PATH=/app \

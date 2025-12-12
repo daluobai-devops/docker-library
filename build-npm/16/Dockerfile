@@ -9,12 +9,11 @@ RUN apk add --no-cache \
         less \
         ttf-dejavu \
         fontconfig
-RUN npm config set unsafe-perm true
 #taobao镜像
-RUN npm config set unsafe-perm true && \
-    npm config set registry https://registry.npmmirror.com -g && \
-    npm config set sass_binary_site https://npmmirror.com/mirrors/node-sass/ -g
-RUN npm install -g cnpm --registry=https://registry.npmmirror.com
+RUN echo "registry=https://registry.npmmirror.com" > ~/.npmrc && \
+    echo "sass_binary_site=https://npmmirror.com/mirrors/node-sass/" >> ~/.npmrc \
+
+RUN npm install -g cnpm
 
 #package
 ENV BASE_PATH=/app \

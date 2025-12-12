@@ -12,8 +12,9 @@ RUN apk add --no-cache \
         fontconfig
 #taobao镜像
 RUN echo "registry=https://registry.npmmirror.com" > ~/.npmrc && \
-    echo "sass_binary_site=https://npmmirror.com/mirrors/node-sass/" >> ~/.npmrc
-RUN npm install -g cnpm --registry=https://registry.npmmirror.com
+    echo "sass_binary_site=https://npmmirror.com/mirrors/node-sass/" >> ~/.npmrc \
+
+RUN npm install -g cnpm
 # PNPM
 RUN npm i pnpm -g && \
     pnpm config set registry https://registry.npmmirror.com
