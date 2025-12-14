@@ -27,4 +27,4 @@ ENV BASE_PATH=/app \
     PACKAGE_FOLDER_NAME=package \
     CODE_FOLDER_NAME=code
 RUN mkdir -p ${BASE_PATH} && mkdir -p ${BASE_PATH}/${PACKAGE_FOLDER_NAME} && mkdir -p ${BASE_PATH}/${CODE_FOLDER_NAME}
-CMD ["/bin/bash", "-c", "mvn -v && mvnd -v"]
+CMD ["/bin/bash", "-c", "mvn -v"]
