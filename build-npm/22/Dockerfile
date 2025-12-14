@@ -16,8 +16,9 @@ RUN echo "registry=https://registry.npmmirror.com" > ~/.npmrc && \
 
 RUN npm install -g cnpm
 # PNPM
-RUN npm i pnpm -g && \
-    pnpm config set registry https://registry.npmmirror.com
+RUN corepack enable \
+    && corepack prepare pnpm@latest --activate \
+    && pnpm config set registry https://registry.npmmirror.com
 #package
 ENV BASE_PATH=/app \
     PACKAGE_FOLDER_NAME=package \
