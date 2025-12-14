@@ -14,13 +14,13 @@ RUN mkdir -p /root/.ssh && \
 COPY build/settings*.xml ${MAVEN_CONFIG}/
 
 # 安装 mvnd
-ARG MVND_VERSION=0.9.0
-ARG DOWNLOAD_URL=https://cdn.jsdelivr.net/gh/wuzhaozhongguo/share-file@master/attachment/maven-mvnd-${MVND_VERSION}-linux-amd64.zip
-RUN mkdir -p /usr/local/mvnd && \
-    curl -fsSL -o mvnd.zip ${DOWNLOAD_URL} && \
-    unzip mvnd.zip -d /usr/local/mvnd && \
-    rm mvnd.zip && \
-    ln -s /usr/local/mvnd/maven-mvnd-${MVND_VERSION}-linux-amd64/bin/mvnd /usr/bin/mvnd
+#ARG MVND_VERSION=0.9.0
+#ARG DOWNLOAD_URL=https://cdn.jsdelivr.net/gh/wuzhaozhongguo/share-file@master/attachment/maven-mvnd-${MVND_VERSION}-linux-amd64.zip
+#RUN mkdir -p /usr/local/mvnd && \
+#    curl -fsSL -o mvnd.zip ${DOWNLOAD_URL} && \
+#    unzip mvnd.zip -d /usr/local/mvnd && \
+#    rm mvnd.zip && \
+#    ln -s /usr/local/mvnd/maven-mvnd-${MVND_VERSION}-linux-amd64/bin/mvnd /usr/bin/mvnd
 
 # 环境变量设置
 ENV BASE_PATH=/app \

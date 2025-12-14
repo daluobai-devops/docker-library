@@ -1,8 +1,10 @@
 #!/bin/bash
-set -eo pipefail
+set -e
 tagVersion=7
-docker build -t wuzhaozhongguo/centos:${tagVersion} .
-docker push wuzhaozhongguo/centos:${tagVersion}
 
-docker tag wuzhaozhongguo/centos:${tagVersion} registry.cn-hangzhou.aliyuncs.com/wuzhaozhongguo/centos:${tagVersion}
-docker push registry.cn-hangzhou.aliyuncs.com/wuzhaozhongguo/centos:${tagVersion}
+PLATFORM="linux/amd64"
+
+docker buildx build --platform ${PLATFORM} \
+  -t wuzhaozhongguo/centos:${tagVersion} \
+  -t registry.cn-hangzhou.aliyuncs.com/wuzhaozhongguo/centos:${tagVersion} \
+  --push .

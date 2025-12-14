@@ -12,9 +12,7 @@ RUN apk add --no-cache \
         ca-certificates
 #taobao镜像
 RUN echo "registry=https://registry.npmmirror.com" > ~/.npmrc && \
-    echo "sass_binary_site=https://npmmirror.com/mirrors/node-sass/" >> ~/.npmrc \
-
-RUN npm install -g cnpm
+    echo "sass_binary_site=https://npmmirror.com/mirrors/node-sass/" >> ~/.npmrc
 
 # 3. 环境变量与目录
 ENV BASE_PATH=/app \

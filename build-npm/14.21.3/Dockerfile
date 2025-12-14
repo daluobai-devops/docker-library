@@ -11,9 +11,8 @@ RUN apk add --no-cache \
         fontconfig
 #taobao镜像
 RUN echo "registry=https://registry.npmmirror.com" > ~/.npmrc && \
-    echo "sass_binary_site=https://npmmirror.com/mirrors/node-sass/" >> ~/.npmrc \
+    echo "sass_binary_site=https://npmmirror.com/mirrors/node-sass/" >> ~/.npmrc
 
-RUN npm install -g cnpm
 #package
 ENV BASE_PATH=/app \
     PACKAGE_FOLDER_NAME=package \

@@ -1,7 +1,9 @@
-set -eo pipefail
+#!/bin/bash
+set -e
 tagVersion=jdk11-node10160
-docker build -t wuzhaozhongguo/build-mix:${tagVersion} .
-docker push wuzhaozhongguo/build-mix:${tagVersion}
 
-docker tag wuzhaozhongguo/build-mix:${tagVersion} registry.cn-hangzhou.aliyuncs.com/wuzhaozhongguo/build-mix:${tagVersion}
-docker push registry.cn-hangzhou.aliyuncs.com/wuzhaozhongguo/build-mix:${tagVersion}
+PLATFORM="linux/amd64"
+docker buildx build --platform ${PLATFORM} \
+  -t wuzhaozhongguo/build-mix:${tagVersion} \
+  -t registry.cn-hangzhou.aliyuncs.com/wuzhaozhongguo/build-mix:${tagVersion} \
+  --push .
