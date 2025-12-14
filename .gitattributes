@@ -1,0 +1,5 @@
+# 脚本统一使用 LF
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
