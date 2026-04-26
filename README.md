@@ -2,6 +2,10 @@
 docker 镜像
 # 文档
 
+登录阿里云和dockerhub
+-   docker login -u="账号" "registry.cn-hangzhou.aliyuncs.com" -p="密码"
+-   docker login
+
 os - > centos7
 -  使用
 ```bash
