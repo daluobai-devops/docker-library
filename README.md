@@ -6,9 +6,5 @@ docker 镜像
 -   docker login -u="账号" "registry.cn-hangzhou.aliyuncs.com" -p="密码"
 -   docker login
 
-os - > centos7
--  使用
-```bash
-docker run -it --name="test-centos7" --privileged=true --volume=D:\workspace\code\github\wuzhaozhongguo\test\:/volume registry.cn-hangzhou.aliyuncs.com/wuzhaozhongguo/centos:7
-docker run -it --name="test-node10" --privileged=true  --volume=D:\workspace\docker\volume\test-node14:/volume registry.cn-hangzhou.aliyuncs.com/wuzhaozhongguo/build-npm:10.16.0
-```
+打包多CPU架构执行这个
+docker run --privileged --rm tonistiigi/binfmt --install all
